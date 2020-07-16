@@ -10,12 +10,35 @@
 <!--    <link rel="stylesheet" href="/css/bootstrap-theme.css" type="text/css" />-->
 
     <!--  TODO: Закомментировать при начале работы с сервером -->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
-<!--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <!-- TODO: Task 0. Построить вёрстку приложения по макету
           используя для сетки bootstrap -->
+<div class="container">
+    <div class="row">
+        <header class="col-lg-12">
+            <div>
+                <span id="roomName">Название комнаты</span>
+                <span id="roomStatus" class="bg-warning">Статус комнаты</span>
+            </div>
+        </header>
+    </div>
+
+    <div class="row">
+        <footer class="col-lg-12">
+            <button class="btn btn-info">К списку игр</button>
+            <button class="btn btn-success">Начать игру</button>
+            <button class="btn btn-primary">Подключиться случайно</button>
+            <button class="btn btn-primary">Подключиться к полицейским</button>
+            <button class="btn btn-primary">Подключиться к мошенникам</button>
+            <button class="btn btn-danger">Прервать игру</button>
+        </footer>
+    </div>
+</div>
+
+
 
 <div class="hidden">
     <img id="img_heart"
