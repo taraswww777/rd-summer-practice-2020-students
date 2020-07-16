@@ -1,3 +1,90 @@
-.hidden{
-  display: none;
+.hidden {
+    display: none;
+}
+
+.team {
+    border: 1px solid coral;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.team__status,
+.team__header {
+    padding: 5px;
+}
+
+.team__status-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team__status-item-details {
+    width: 100%;
+}
+
+.team--police {
+    border-color: dodgerblue;
+}
+
+.team--police .team__header {
+    background: dodgerblue;
+}
+
+.team--cheater {
+    border-color: purple;
+}
+
+.team--cheater .team__header {
+    background: purple;
+}
+
+.team--cheater .players {
+    background: rgba(128, 0, 128, 0.5);
+}
+
+.team--police .players {
+    background: rgba(56, 154, 255, 0.5);
+}
+
+.players__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.scope {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.scope__item {
+    margin: 0 3px;
+    font-weight: bold;
+    padding: 2px 3px;
+}
+
+.scope__item:last-child {
+    margin-right: 0;
+}
+
+.scope__item:first-child {
+    margin-left: 0;
+}
+
+.scope__item--coins {
+    background: gold;
+}
+
+.scope__item--lives {
+    background: red;
+}
+
+.scope__item--dies {
+    background: brown;
+}
+
+.scope__item--dies,
+.scope__item--lives {
+    color: white;
 }
