@@ -331,6 +331,18 @@ const $imgSwitch = document.getElementById('imgSwitch');
                  */
                 $roomName.innerHTML = name;
                 $roomStatus.innerHTML = utils.getStatusName(status);
+                /**
+                 * TODO: ДЗ. Task 6.1. Удалить старые значения статусов
+                 */
+                const correctClass = ['game-caption'];
+                const unCorrectClasses = [];
+                $gameCaption.classList.forEach(el => {
+                    if (!correctClass.includes(el)) {
+                        unCorrectClasses.push(el);
+                    }
+                });
+                unCorrectClasses.length && $gameCaption.classList.remove(unCorrectClasses);
+
                 $gameCaption.classList.add(`game-caption--status_${status}`);
             };
             GameView.prototype.setTimer = function (data) {
@@ -351,12 +363,15 @@ const $imgSwitch = document.getElementById('imgSwitch');
                 /**
                  * TODO: Task 7. Поменяйте под вашу вёрстку
                  */
-                return `<div id='player${player.id}' class='game-player game-player-status-${status}'>
-                    <span class='game-player-name'>${player.name}</span>
-                     [<span class='game-player-coins'>${player.coins}</span>
-                    <span class='game-player-lives'>${player.lives}</span>
-                    <span class='game-player-deaths'>${player.deaths}</span>]
-                    </div>`;
+                console.log('player:', player);
+                return `<div class="players__item players__item--status_${status}" id="player${player.id}">
+                    <span class="login">${player.name}</span>
+                    <div class="scope">
+                        <div class="scope__item scope__item--coins">${player.coins}</div>
+                        <div class="scope__item scope__item--lives">${player.lives}</div>
+                        <div class="scope__item scope__item--dies">${player.deaths}</div>
+                    </div>
+                </div>`;
             };
             GameView.prototype.updatePlayer = function (player) {
                 $("#player" + player.id).replaceWith(this.getPlayer(player));

@@ -157,6 +157,8 @@
             <button class="btn btn-danger" id="btnLeave">Leave</button>
             <button class="btn btn-danger" id="btnPause">Pause</button>
             <button class="btn btn-danger" id="btnCancel">Cancel</button>
+
+            <button class="btn btn-default" id="btnTest">btnTest</button>
         </footer>
     </div>
 </div>
@@ -255,6 +257,48 @@ go8L3N2Zz4="/>
 <script src="utils.js" type="text/javascript"></script>
 <script src="gameController.js" type="text/javascript"></script>
 <!-- TODO: Раскомментировать при начале работы с сервером -->
-<script src="game.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    const $btnTest = document.getElementById('btnTest');
+
+    const $gameCaption = document.getElementById('gameCaption');
+    const $roomName = document.getElementById('roomName');
+    const $roomStatus = document.getElementById('roomStatus');
+
+    const statusMap = [
+        'open',
+        'ready',
+        'starting',
+        'inProcess',
+        'paused',
+        'canceled',
+        'finished',
+        'replaying',
+        'replayingPaused',
+    ];
+
+    const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
+
+    const getRandomStatus = () => statusMap[getRandomInt(8)];
+
+    $btnTest.addEventListener('click', () => {
+        $roomName.innerHTML = 'test';
+
+        const status = getRandomStatus();
+        $roomStatus.innerHTML = utils.getStatusName(status);
+
+        const correctClass = ['game-caption'];
+        let unCorrectClasses = [];
+        $gameCaption.classList.forEach(el => {
+            if (!correctClass.includes(el)) {
+                unCorrectClasses.push(el);
+            }
+        });
+        unCorrectClasses.length && $gameCaption.classList.remove(unCorrectClasses);
+
+        $gameCaption.classList.add(`game-caption--status_${status}`);
+    });
+</script>
+<!--<script src="game.js" type="text/javascript"></script>-->
 </body>
 </html>

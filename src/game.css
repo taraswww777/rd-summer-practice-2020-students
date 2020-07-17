@@ -58,6 +58,11 @@
     flex-wrap: nowrap;
 }
 
+.scope:before {
+    content: '[';
+    display: inline-block;
+}
+
 .scope__item {
     margin: 0 3px;
     font-weight: bold;
@@ -92,3 +97,13 @@
 .gameMap{
     border: 1px solid black;
 }
+
+.game-caption--status_open .game-caption__status{ background: #31de13}
+.game-caption--status_ready .game-caption__status{ background: #31de13}
+.game-caption--status_starting .game-caption__status{ background: #31de13}
+.game-caption--status_inProcess .game-caption__status{ background: #31de13}
+.game-caption--status_paused .game-caption__status{ background: #ffdd00}
+.game-caption--status_canceled .game-caption__status{ background: #ff001a}
+.game-caption--status_finished .game-caption__status{ background: #ff001a}
+.game-caption--status_replaying .game-caption__status{ background: #ff001a}
+.game-caption--status_replayingPaused .game-caption__status{ background: #ffdd00}
