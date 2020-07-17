@@ -88,3 +88,7 @@
 .scope__item--lives {
     color: white;
 }
+
+.gameMap{
+    border: 1px solid black;
+}
