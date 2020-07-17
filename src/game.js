@@ -5,44 +5,40 @@
  *  Для получения доступа к DOM элементу следует
  *  использовать document.getElementById('elementId')
  */
-/*
-$containerGame
-$loading
-$error
+const $containerGame = document.getElementById('containerGame');
+const $loading = document.getElementById('loadingBlock');
+const $error = document.getElementById('errorBlock');
 
-$mapCanvas
-$gameCaption
-$switchTimer
-$team1Container
-$team1Caption
-$team1Players
-$team1Lives
-$team1Coins
-$team2Container
-$team2Caption
-$team2Players
-$team2Lives
-$team2Coins
+const $mapCanvas = document.getElementById('mapCanvas');
+const $gameCaption = document.getElementById('gameCaption');
+const $switchTimer = document.getElementById('switchTimer');
+const $team1Container = document.getElementById('team1Container');
+const $team1Caption = document.getElementById('team1Caption');
+const $team1Players = document.getElementById('team1Players');
+const $team1Lives = document.getElementById('team1Lives');
+const $team1Coins = document.getElementById('team1Coins');
+const $team2Container = document.getElementById('team2Container');
+const $team2Caption = document.getElementById('team2Caption');
+const $team2Players = document.getElementById('team2Players');
+const $team2Lives = document.getElementById('team2Lives');
+const $team2Coins = document.getElementById('team2Coins');
 
-$btnGameList
-$btnStart
-$btnConnect
-$btnConnectPolice
-$btnConnectThief
-$btnLeave
-$btnPause
-$btnCancel
+const $btnGameList = document.getElementById('btnConnectRandom');
+const $btnStart = document.getElementById('btnConnectRandom');
+const $btnConnect = document.getElementById('btnConnectRandom');
+const $btnConnectPolice = document.getElementById('btnConnectRandom');
+const $btnConnectThief = document.getElementById('btnConnectRandom');
+const $btnLeave = document.getElementById('btnConnectRandom');
+const $btnPause = document.getElementById('btnConnectRandom');
+const $btnCancel = document.getElementById('btnConnectRandom');
 
-$imgHeart
-$imgCoin
-$imgPolice
-$imgPoliceSelf
-$imgThief
-$imgThiefSelf
-$imgSwitch
- */
-
-// ...
+const $imgHeart = document.getElementById('imgHeart');
+const $imgCoin = document.getElementById('imgCoin');
+const $imgPolice = document.getElementById('imgPolice');
+const $imgPoliceSelf = document.getElementById('imgPoliceSelf');
+const $imgThief = document.getElementById('imgThief');
+const $imgThiefSelf = document.getElementById('imgThiefSelf');
+const $imgSwitch = document.getElementById('imgSwitch');
 
 // game.html UI
 (function (app, $) {

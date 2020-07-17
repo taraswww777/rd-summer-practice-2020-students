@@ -16,10 +16,10 @@
 <body>
 <!-- TODO: Task 0. Построить вёрстку приложения по макету
           используя для сетки bootstrap -->
-<div class="container">
+<div class="container" id="containerGame">
     <div class="row">
         <header class="col-lg-12">
-            <div>
+            <div id="gameCaption">
                 <span id="roomName">Название комнаты</span>
                 <span id="roomStatus" class="bg-warning">Статус комнаты</span>
             </div>
@@ -28,19 +28,19 @@
     <div class="row">
         <main class="col-lg-12">
             <div class="row">
-                <div class="col-lg-12 bg-info text-center">00:00</div>
-                <div class="col-xs-2 ">
-                    <div class="team team--police">
+                <div class="col-lg-12 bg-info text-center" id="switchTimer">00:00</div>
+                <div class="col-xs-2">
+                    <div class="team team--police" id="team1Container">
                         <header class="team__header">
                             <div class="team__type">Полицейские</div>
-                            <div class="team__name">7714</div>
+                            <div class="team__name" id="team1Caption">7714</div>
                         </header>
                         <main class="team__status">
                             <div class="team__status-item">
                                 <div class="team__status-item-caption">Жизни</div>
                                 <div class="team__status-item-scope">
                                     <div class="scope">
-                                        <div class="scope__item scope__item--lives">10</div>
+                                        <div class="scope__item scope__item--lives" id="team1Lives">10</div>
                                     </div>
                                 </div>
                             </div>
@@ -48,14 +48,14 @@
                                 <div class="team__status-item-caption">Монеты</div>
                                 <div class="team__status-item-scope">
                                     <div class="scope">
-                                        <div class="scope__item scope__item--coins">10</div>
+                                        <div class="scope__item scope__item--coins" id="team1Coins">10</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="team__status-item">
                                 <div class="team__status-item-caption">Игроки</div>
                                 <div class="team__status-item-details">
-                                    <div class="players">
+                                    <div class="players" id="team1Players">
                                         <div class="players__list">
                                             <div class="players__item">
                                                 <span class="login">Cheburas hka1 Cheb uras hka1</span>
@@ -86,21 +86,21 @@
                 </div>
                 <!-- Карта -->
                 <div class="col-xs-8">
-                    <canvas id="map" class="gameMap"></canvas>
+                    <canvas id="mapCanvas" class="gameMap"></canvas>
                 </div>
                 <!-- /Карта -->
                 <div class="col-xs-2">
-                    <div class="team team--cheater">
+                    <div class="team team--cheater" id="team2Container">
                         <header class="team__header">
                             <div class="team__type">Мошенники</div>
-                            <div class="team__name">7714</div>
+                            <div class="team__name" id="team2Caption">7714</div>
                         </header>
                         <main class="team__status">
                             <div class="team__status-item">
-                                <div class="team__status-item-caption">Жизни</div>
+                                <div class="team__status-item-caption" >Жизни</div>
                                 <div class="team__status-item-scope">
                                     <div class="scope">
-                                        <div class="scope__item scope__item--lives">10</div>
+                                        <div class="scope__item scope__item--lives" id="team2Lives">10</div>
                                     </div>
                                 </div>
                             </div>
@@ -108,14 +108,14 @@
                                 <div class="team__status-item-caption">Монеты</div>
                                 <div class="team__status-item-scope">
                                     <div class="scope">
-                                        <div class="scope__item scope__item--coins">10</div>
+                                        <div class="scope__item scope__item--coins" id="team2Coins">10</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="team__status-item">
                                 <div class="team__status-item-caption">Игроки</div>
                                 <div class="team__status-item-details">
-                                    <div class="players">
+                                    <div class="players" id="team2Players">
                                         <div class="players__list">
                                             <div class="players__item">
                                                 <span class="login">Cheburas hka1 Cheb uras hka1</span>
@@ -148,17 +148,25 @@
         </main>
     </div>
     <div class="row">
-        <footer class="col-lg-12">
-            <button class="btn btn-info">К списку игр</button>
-            <button class="btn btn-success">Начать игру</button>
-            <button class="btn btn-primary">Подключиться случайно</button>
-            <button class="btn btn-primary">Подключиться к полицейским</button>
-            <button class="btn btn-primary">Подключиться к мошенникам</button>
-            <button class="btn btn-danger">Прервать игру</button>
+        <footer class="col-lg-12 text-center">
+            <button class="btn btn-info" id="btnGameList">К списку игр</button>
+            <button class="btn btn-success" id="btnStart">Начать игру</button>
+            <button class="btn btn-primary" id="btnConnectRandom">Подключиться случайно</button>
+            <button class="btn btn-primary" id="btnConnectPolice">Подключиться к полицейским</button>
+            <button class="btn btn-primary" id="btnConnectThief">Подключиться к мошенникам</button>
+            <button class="btn btn-danger" id="btnLeave">Leave</button>
+            <button class="btn btn-danger" id="btnPause">Pause</button>
+            <button class="btn btn-danger" id="btnCancel">Cancel</button>
         </footer>
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" id="loadingBlock">Лог игры</div>
+        <div class="col-lg-12" id="errorBlock">Ошибки</div>
+    </div>
+</div>
 
 
 <div class="hidden">
@@ -247,6 +255,6 @@ go8L3N2Zz4="/>
 <script src="utils.js" type="text/javascript"></script>
 <script src="gameController.js" type="text/javascript"></script>
 <!-- TODO: Раскомментировать при начале работы с сервером -->
-<!--<script src="game.js" type="text/javascript"></script>-->
+<script src="game.js" type="text/javascript"></script>
 </body>
 </html>
