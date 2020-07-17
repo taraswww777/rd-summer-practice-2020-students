@@ -182,19 +182,19 @@ const $imgSwitch = document.getElementById('imgSwitch');
             }
             GameView.prototype.moveLeft = function (event) {
                 event.preventDefault();
-                this.state.game.stopMoving();
+                this.state.game.beginMove(GameApi.MoveDirection.left);
             }
             GameView.prototype.moveUp = function (event) {
                 event.preventDefault();
-                this.state.game.beginMove(GameApi.MoveDirection.left);
+                this.state.game.beginMove(GameApi.MoveDirection.top);
             }
             GameView.prototype.moveRight = function (event) {
                 event.preventDefault();
-                this.state.game.beginMove(GameApi.MoveDirection.top);
+                this.state.game.beginMove(GameApi.MoveDirection.right);
             }
             GameView.prototype.moveDown = function (event) {
                 event.preventDefault();
-                this.state.game.beginMove(GameApi.MoveDirection.right);
+                this.state.game.beginMove(GameApi.MoveDirection.bottom);
             }
 
             GameView.prototype.bindButtons = function () {
@@ -203,7 +203,14 @@ const $imgSwitch = document.getElementById('imgSwitch');
                  * TODO Task 4. Используя addEventListener повешайте обработчики событий на кнопки
                  *  нажатия на кнопки это событие click
                  */
-                // ...
+                $btnGameList.addEventListener('click', this.goToGameList);
+                $btnStart.addEventListener('click', this.startGame);
+                $btnConnect.addEventListener('click', this.joinAsRandom);
+                $btnConnectPolice.addEventListener('click', this.joinAsPolice);
+                $btnConnectThief.addEventListener('click', this.joinAsThief);
+                $btnLeave.addEventListener('click', this.leaveGame);
+                $btnPause.addEventListener('click', this.pauseGame);
+                $btnCancel.addEventListener('click', this.cancelGame);
 
                 window.addEventListener('keydown', (event) => {
                     if ($lastKey === event.key) {
@@ -212,8 +219,22 @@ const $imgSwitch = document.getElementById('imgSwitch');
                     /**
                      * TODO Task 5. Допишите обработку нажатий клавиш передвижения
                      */
-                    switch (event.key) {
-                        // ...
+                    switch (event.code) {
+                        case 'ArrowUp':
+                            this.moveUp();
+                            break;
+                        case 'ArrowRight':
+                            this.moveRight();
+                            break;
+                        case 'ArrowDown':
+                            this.moveDown();
+                            break;
+                        case 'ArrowLeft':
+                            this.moveLeft();
+                            break;
+                        case 'Space':
+                            this.stopMoving();
+                            break;
                     }
                 });
                 window.addEventListener('keyup', () => $lastKey = -1);
