@@ -58,6 +58,11 @@
     flex-wrap: nowrap;
 }
 
+.scope:before {
+    content: '[';
+    display: inline-block;
+}
+
 .scope__item {
     margin: 0 3px;
     font-weight: bold;
