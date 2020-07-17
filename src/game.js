@@ -81,14 +81,30 @@ const $imgSwitch = document.getElementById('imgSwitch');
 
             function drawMapField(canvas, map, width, height, cellSize) {
                 const ctx = canvas.getContext("2d");
-                ctx.fillStyle = "#FFFFFF";
+                const colorWall = '#C0C0C0';
+                const colorFreePlace = '#FFFFFF';
+                const lineWidth = '1px';
+
+                ctx.fillStyle = colorFreePlace;
                 ctx.fillRect(0, 0, width, height);
-                ctx.strokeStyle = "#C0C0C0";
-                ctx.strokeWidth = "1px";
+                ctx.strokeStyle = colorWall;
+                ctx.strokeWidth = lineWidth;
                 /**
                  * TODO Task 3. Опишите заполнение цветами карты на канвасе
                  */
-                // ...
+                for (let i = 0; i < map.cells.length; i++) {
+                    const cell = map.cells[i];
+                    const x = i % map.width;
+                    const y = Math.floor(i / map.width);
+                    if (cell === GameApi.MapCellType.wall) {
+                        ctx.fillStyle = colorWall;
+                        ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                    } else {
+                        ctx.fillStyle = colorFreePlace;
+                        ctx.rect(x * cellSize, y * cellSize, cellSize, cellSize);
+                        ctx.stroke();
+                    }
+                }
             }
 
             function getCanvasBuffer(width, height, map, cellSize) {
