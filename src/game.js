@@ -10,7 +10,11 @@ const $loading = document.getElementById('loadingBlock');
 const $error = document.getElementById('errorBlock');
 
 const $mapCanvas = document.getElementById('mapCanvas');
+
 const $gameCaption = document.getElementById('gameCaption');
+const $roomName = document.getElementById('roomName');
+const $roomStatus = document.getElementById('roomStatus');
+
 const $switchTimer = document.getElementById('switchTimer');
 const $team1Container = document.getElementById('team1Container');
 const $team1Caption = document.getElementById('team1Caption');
@@ -325,9 +329,9 @@ const $imgSwitch = document.getElementById('imgSwitch');
                 /**
                  * TODO: Task 6. Поменяйте под вашу вёрстку
                  */
-                utils.reWriteDomElement(
-                    this.game.$gameCaption, `<div class='game-caption-name'>${name} <span class='game-caption-status game-caption-status-${status}'>${utils.getStatusName(status)}</span></div>`,
-                );
+                $roomName.innerHTML = name;
+                $roomStatus.innerHTML = utils.getStatusName(status);
+                $gameCaption.classList.add(`game-caption--status_${status}`);
             };
             GameView.prototype.setTimer = function (data) {
                 let seconds = data.s;
